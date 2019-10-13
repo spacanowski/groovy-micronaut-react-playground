@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: ad.etl
+---
+testFramework: spock
+sourceLanguage: groovy
