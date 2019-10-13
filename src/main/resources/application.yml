@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: ad-etl
+  server:
+    cors:
+      enabled: true
+
+app:
+   data:
+      # source - set 'local' or 'remote'. Local will take file from resources, remote will get data from github gist
+      source: local # remote - set 'local' or 'remote'
+      local.path: 'src/main/resources/data.csv'
+      remote:
+        url: 'https://gist.githubusercontent.com/'
+        path: '/spacanowski/c26a02a359b8e30858acf2d58b478bc8/raw/7eeb60f93bf11010dc1e9cd9eff5ebeb00124af7/data.csv'
+        retry:
+           attempts: 2
+           delay: 5s
