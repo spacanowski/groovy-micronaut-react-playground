@@ -1,14 +1,10 @@
 package io.github.spacanowski.ad.etl.loader
 
-import io.github.spacanowski.ad.etl.model.AdvertisingData
-import io.github.spacanowski.ad.etl.model.AdvertisingMetric
-
 import java.text.SimpleDateFormat
 
 class CsvLoader {
 
-    static def load(lines) {
-        def advertisingData = new AdvertisingData()
+    static def load(lines, dataSetter) {
         def dateFormatter = new SimpleDateFormat("dd.MM.yyyy")
 
         // TODO if becomes more complicated use dedicated CSV parser
@@ -22,27 +18,7 @@ class CsvLoader {
             def clicks = fields.length >= 4 ? fields[3] as Integer : 0
             def impressions = fields.length >= 5 ? fields[4] as Integer : 0
 
-            advertisingData.data.add(new AdvertisingMetric(
-                    date: date,
-                    datasource: datasource,
-                    campainName: campainName,
-                    clicks: clicks,
-                    impressions: impressions
-            ))
-
-            advertisingData.dates.add(date)
-            advertisingData.datasources.add(datasource)
-
-            def datasourceCampain = advertisingData.campains.get(datasource)
-            if (datasourceCampain) {
-                datasourceCampain.add(campainName)
-            } else {
-                advertisingData.campains.put(datasource, [campainName])
-            }
+            dataSetter(date, datasource, campainName, clicks, impressions)
         }
-
-        advertisingData.dates.sort { it }
-
-        advertisingData
     }
 }

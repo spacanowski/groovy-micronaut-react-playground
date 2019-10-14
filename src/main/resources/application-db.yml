@@ -1,0 +1,10 @@
+# For test purposes can be hardcoded, remote DBs credentials take from env vars
+postgres:
+    reactive:
+        client:
+            port: 5432
+            host: localhost
+            database: etl
+            user: appuser
+            password: apppass
+            maxSize: 5

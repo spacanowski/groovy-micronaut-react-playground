@@ -1,6 +1,7 @@
-package io.github.spacanowski.ad.etl.config
+package io.github.spacanowski.ad.etl.config.remote
 
 import io.github.spacanowski.ad.etl.client.DataClient
+import io.github.spacanowski.ad.etl.config.DataSource
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Requires
 

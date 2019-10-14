@@ -1,5 +1,6 @@
-package io.github.spacanowski.ad.etl.config
+package io.github.spacanowski.ad.etl.config.local
 
+import io.github.spacanowski.ad.etl.config.DataSource
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Requires
 import io.micronaut.context.annotation.Value

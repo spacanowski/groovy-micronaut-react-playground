@@ -1,0 +1,16 @@
+version: '3'
+services:
+  etl-service-backend-db:
+    image: postgres:10.6
+    environment:
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=apppass
+      - POSTGRES_DB=etl
+    ports:
+      - 5432:5432
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - etl-service-backend-data:/var/lib/postgresql/data
+
+volumes:
+  etl-service-backend-data:
