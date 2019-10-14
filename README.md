@@ -32,4 +32,4 @@ Will start and serve page at `localhost:3000`
 - [ ]  Add tests
 - [ ]  Add javadocs
 - [ ]  Add page styling
-- [ ]  Add DB
+- [x]  Add DB
