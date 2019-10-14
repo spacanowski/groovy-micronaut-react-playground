@@ -9,6 +9,15 @@ Simple application in groovy using micronaut framework and react js as frontend
 ```
 Will start app on `localhost:8080`
 
+## Running backend localy with db
+
+```
+cd local
+docker-compose up &
+MICRONAUT_ENVIRONMENTS=db ./gradlew run
+```
+Will start app on `localhost:8080`
+
 ## Running frontend localy
 
 ```
